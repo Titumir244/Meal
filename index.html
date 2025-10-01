@@ -1,302 +1,197 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
     <meta charset="UTF-8">
     <title>মিলের হিসাব</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI','SolaimanLipi',sans-serif; }
-        body { background-color: #f5f7fa; color: #333; line-height: 1.6; padding: 10px; }
-        .container { max-width: 1400px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 20px; padding: 15px; background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h1 { font-size: 28px; margin-bottom: 5px; }
-        .subtitle { font-size: 16px; opacity: 0.9; }
-
-        /* ট্যাব স্টাইল */
-        .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .tab-btn { padding: 12px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 8px; background-color: #e9ecef; color: #495057; transition: all 0.3s ease; flex: 1; min-width: 150px; font-weight: 600; }
-        .tab-btn:hover { background-color: #dee2e6; }
-        .tab-btn.active { background: linear-gradient(135deg, #2563eb, #3b82f6); color: white; box-shadow: 0 4px 8px rgba(37,99,235,0.3); }
-
-        /* সেকশন স্টাইল */
-        .section { display: none; opacity: 0; transition: opacity 0.5s ease; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .section.show { display: block; opacity: 1; }
-        .section-header { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; color: #1e3c72; }
-
-        /* টেবিল স্টাইল */
-        .table-container { overflow-x: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid #dee2e6; }
-        table { border-collapse: collapse; width: 100%; font-size: 14px; }
-        th, td { border: 1px solid #dee2e6; padding: 10px 8px; text-align: center; }
-        th { background-color: #1e3c72; color: white; font-weight: 600; position: sticky; top: 0; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        tr:hover { background-color: #e9ecef; }
-
-        .flex { display: flex; gap: 20px; overflow-x: auto; padding: 10px 0; }
-        .flex > * { flex: 1; min-width: 300px; }
-
-        /* লোডিং স্টাইল */
-        .loading { text-align: center; padding: 30px; font-size: 18px; color: #6c757d; }
-        .loading i { margin-right: 10px; color: #2563eb; }
-
-        /* রেসপন্সিভ ডিজাইন */
-        @media (max-width: 768px) {
-            .tabs { flex-direction: column; }
-            .tab-btn { width: 100%; }
-            .flex { flex-direction: column; }
-            .container { padding: 5px; }
-            table { font-size: 12px; }
-            th, td { padding: 6px 4px; }
-        }
-
-        /* রঙের ক্লাস */
-        .positive { color: #34d399; font-weight: bold; }
-        .negative { color: #f87171; font-weight: bold; }
-        .neutral { color: #d1d5db; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="container">
-    <header>
-        <h1><i class="fas fa-chart-line"></i>মিলের হিসাব</h1>
-        <p class="subtitle">OCTOBER-2025</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-line"></i> মিলের হিসাব</h1>
+            <p class="subtitle">OCTOBER-2025</p>
+            <h4 class="subtitle">MD FERDAUS ALAM (TITUMIR)</h4>
+        </header>
 
-    <div class="tabs">
-        <button class="tab-btn active"><i class="fas fa-chart-pie"></i>মোট হিসাব</button>
-        <button class="tab-btn"><i class="fas fa-utensils"></i> মিল</button>
-        <button class="tab-btn"><i class="fas fa-calculator"></i> জমা ও হিসাব</button>
-        <button class="tab-btn"><i class="fas fa-shopping-cart"></i> বাজার</button>
+        <div class="tabs">
+            <button class="tab-btn active"><i class="fas fa-chart-pie"></i> মোট হিসাব</button>
+            <button class="tab-btn"><i class="fas fa-utensils"></i> মিল</button>
+            <button class="tab-btn"><i class="fas fa-calculator"></i> জমা ও হিসাব</button>
+            <button class="tab-btn"><i class="fas fa-shopping-cart"></i> বাজার</button>
+        </div>
+
+        <section class="section summary show">
+            <h2 class="section-header"><i class="fas fa-chart-pie"></i>মোট হিসাব</h2>
+            <div class="flex">
+                <div class="table-container">
+                    <table id="table1">
+                        <thead>
+                            <tr>
+                                <th colspan="2">ব্যায়</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="table-container">
+                    <table id="table2">
+                        <thead>
+                            <tr>
+                                <th colspan="2">মিল</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="table-container">
+                    <table id="table3">
+                        <thead>
+                            <tr>
+                                <th colspan="2">আয়</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section mil">
+            <h2 class="section-header"><i class="fas fa-utensils"></i> মিলের তথ্য</h2>
+            <div class="table-container">
+                <table id="table4">
+                    <thead>
+                        <tr>
+                            <th colspan="35">
+                                <h3>অক্টোবর-২০২৫</h3>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">ক্রমিক</th>
+                            <th rowspan="2">নাম</th>
+                            <th rowspan="2">রুম</th>
+                            <th colspan="31">তারিখ</th>
+                            <th rowspan="2">মোট</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                            <th>11</th>
+                            <th>12</th>
+                            <th>13</th>
+                            <th>14</th>
+                            <th>15</th>
+                            <th>16</th>
+                            <th>17</th>
+                            <th>18</th>
+                            <th>19</th>
+                            <th>20</th>
+                            <th>21</th>
+                            <th>22</th>
+                            <th>23</th>
+                            <th>24</th>
+                            <th>25</th>
+                            <th>26</th>
+                            <th>27</th>
+                            <th>28</th>
+                            <th>29</th>
+                            <th>30</th>
+                            <th>31</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section joma">
+            <h2 class="section-header col">
+                <div class="heading"><i class="fas fa-calculator"></i> জমা ও হিসাব</div>
+                <div class="color"> 
+                    <i class="fa-solid fa-circle" style="color: #f87171;"> টাকা বাকি</i>
+                    <i class="fa-solid fa-circle" style="color: #34d399;"> টাকা আছে</i>
+                    <i class="fa-solid fa-circle" style="color: #60a5fa;"> টাকা পরিশোধিত</i>
+                </div>
+            </h2>
+            <div class="table-container">
+                <table id="table5">
+                    <thead>
+                        <tr>
+                            <th>ক্রমিক</th>
+                            <th>নাম</th>
+                            <th>রুম</th>
+                            <th>বাজার</th>
+                            <th>জমা</th>
+                            <th>মিল</th>
+                            <th>খরচ</th>
+                            <th>পাবে</th>
+                            <th>দিবে</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section bazar">
+            <h2 class="section-header"><i class="fas fa-shopping-cart"></i> বাজার সংক্রান্ত তথ্য</h2>
+            <div class="table-container">
+                <table id="table6">
+                    <thead>
+                        <tr>
+                            <th>তারিখ</th>
+                            <th>১ম বাজারকারী</th>
+                            <th>২য় বাজারকারী</th>
+                            <th>দো.বাজার</th>
+                            <th>কা.বাজার</th>
+                            <th>অন্যান্য</th>
+                            <th>খড়ি বিল</th>
+                            <th>মোট খরচ</th>
+                            <th>মিল</th>
+                            <th>মিল রেট</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="flex">
+                <div class="table-container">
+                    <table id="table7">
+                        <thead>
+                            <tr>
+                                <th colspan="2">খড়ি বিল</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="table-container">
+                    <table id="table8">
+                        <thead>
+                            <tr>
+                                <th colspan="2">অন্যান্য খরচ</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <div class="loading" id="loading"><i class="fas fa-spinner fa-spin"></i> ডেটা লোড হচ্ছে...</div>
     </div>
-
-    <section class="section summary show">
-        <h2 class="section-header"><i class="fas fa-chart-pie"></i>মোট হিসাব</h2>
-        <div class="flex">
-            <div class="table-container"><table id="table1"><thead><tr><th colspan="2">ব্যায়</th></tr></thead><tbody></tbody></table></div>
-            <div class="table-container"><table id="table2"><thead><tr><th colspan="2">মিল</th></tr></thead><tbody></tbody></table></div>
-            <div class="table-container"><table id="table3"><thead><tr><th colspan="2">আয়</th></tr></thead><tbody></tbody></table></div>
-        </div>
-    </section>
-
-    <section class="section mil">
-        <h2 class="section-header"><i class="fas fa-utensils"></i> মিলের তথ্য</h2>
-        <div class="table-container">
-            <table id="table4">
-                <thead>
-                    <tr>
-                        <th colspan="35"><h3>অক্টোবর-২০২৫</h3></th>
-                    </tr>
-                    <tr>
-                        <th rowspan="2">ক্রমিক</th>
-                        <th rowspan="2">নাম</th>
-                        <th rowspan="2">রুম</th>
-                        <th colspan="31">তারিখ</th>
-                        <th rowspan="2">মোট</th>
-                    </tr>
-                    <tr>
-  <th>1</th>
-  <th>2</th>
-  <th>3</th>
-  <th>4</th>
-  <th>5</th>
-  <th>6</th>
-  <th>7</th>
-  <th>8</th>
-  <th>9</th>
-  <th>10</th>
-  <th>11</th>
-  <th>12</th>
-  <th>13</th>
-  <th>14</th>
-  <th>15</th>
-  <th>16</th>
-  <th>17</th>
-  <th>18</th>
-  <th>19</th>
-  <th>20</th>
-  <th>21</th>
-  <th>22</th>
-  <th>23</th>
-  <th>24</th>
-  <th>25</th>
-  <th>26</th>
-  <th>27</th>
-  <th>28</th>
-  <th>29</th>
-  <th>30</th>
-  <th>31</th>
-</tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-    </section>
-
-    <section class="section joma">
-        <h2 class="section-header"><i class="fas fa-calculator"></i> জমা ও হিসাব</h2>
-        <div class="table-container"><table id="table5"><thead><tr><th>ক্রমিক</th><th>নাম</th><th>রুম</th><th>জমা</th><th>মিল</th><th>খরচ</th><th>পাবে</th><th>দিবে</th></tr></thead><tbody></tbody></table></div>
-    </section>
-
-    <section class="section bazar">
-        <h2 class="section-header"><i class="fas fa-shopping-cart"></i> বাজার সংক্রান্ত তথ্য</h2>
-        <div class="table-container"><table id="table6"><thead><tr><th>তারিখ</th><th>১ম বাজারকারী</th><th>২য় বাজারকারী</th><th>দো.বাজার</th><th>কা.বাজার</th><th>অন্যান্য</th><th>খড়ি বিল</th><th>মোট খরচ</th><th>মিল</th><th>মিল রেট</th></tr></thead><tbody></tbody></table></div>
-        <div class="flex">
-            <div class="table-container"><table id="table7"><thead><tr><th colspan="2">খড়ি বিল</th></tr></thead><tbody></tbody></table></div>
-            <div class="table-container"><table id="table8"><thead><tr><th colspan="2">অন্যান্য খরচ</th></tr></thead><tbody></tbody></table></div>
-        </div>
-    </section>
-
-    <div class="loading" id="loading"><i class="fas fa-spinner fa-spin"></i> ডেটা লোড হচ্ছে...</div>
-</div>
-
-<script>
-const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRqrXoiSJndnVDYSBuQTrtI3rDYlzDACY1Prad6FkE5p8ytGCGDNnmxRg3H3A9aYg/pub?gid=646586436&single=true&output=csv";
-
-// ================== ট্যাব ফাংশনালিটি =================
-const tabButtons = document.querySelectorAll(".tab-btn");
-const sections = {
-    "মোট হিসাব": document.querySelector(".summary"),
-    "মিল": document.querySelector(".mil"),
-    "জমা ও হিসাব": document.querySelector(".joma"),
-    "বাজার": document.querySelector(".bazar")
-};
-Object.values(sections).forEach(sec => sec.classList.remove("show"));
-sections["মোট হিসাব"].classList.add("show");
-tabButtons.forEach(btn => btn.classList.remove("active"));
-tabButtons[0].classList.add("active");
-
-tabButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        Object.values(sections).forEach(sec => sec.classList.remove("show"));
-        const sectionName = btn.textContent.trim();
-        const sec = sections[sectionName];
-        if (sec) sec.classList.add("show");
-        tabButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-    });
-});
-
-// ================== টেবিল বিল্ডার =================
-function buildTable(targetId, rows, wantedCols) {
-    const tbody = document.querySelector(`#${targetId} tbody`);
-    tbody.innerHTML = "";
-
-    if (rows.length === 0) {
-        const tr = document.createElement("tr");
-        const td = document.createElement("td");
-        td.colSpan = wantedCols.length;
-        td.textContent = "কোন ডেটা পাওয়া যায়নি";
-        td.style.textAlign = "center";
-        td.style.padding = "20px";
-        td.style.color = "#6c757d";
-        tr.appendChild(td);
-        tbody.appendChild(tr);
-        return;
-    }
-
-    rows.forEach(row => {
-        const tr = document.createElement("tr");
-        wantedCols.forEach(colIndex => {
-            const td = document.createElement("td");
-            let cellValue = row[colIndex] || "";
-            if (!isNaN(cellValue) && cellValue.trim() !== "") {
-                cellValue = parseFloat(cellValue).toLocaleString('bn-BD');
-            }
-            td.textContent = cellValue;
-            tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-    });
-}
-
-// ================== Bangla -> English সংখ্যা =================
-function banglaToEnglishNumber(bnStr) {
-    const bnNums = ["০","১","২","৩","৪","৫","৬","৭","৮","৯"];
-    const enNums = ["0","1","2","3","4","5","6","7","8","9"];
-    let enStr = bnStr;
-    bnNums.forEach((bn,i)=>{ enStr = enStr.replace(new RegExp(bn,"g"), enNums[i]); });
-    return enStr;
-}
-
-// ================== টেবিল ৫ রঙ করা =================
-function colorTable5() {
-    const table = document.getElementById("table5");
-    const rows = table.querySelectorAll("tbody tr");
-    rows.forEach(tr => {
-        const tdName = tr.children[1];
-        const tdJoma = tr.children[3];
-        const tdKhoroch = tr.children[5];
-        if (!tdName || !tdJoma || !tdKhoroch) return;
-
-        const valJoma = parseFloat(banglaToEnglishNumber(tdJoma.textContent.replace(/,/g,''))) || 0;
-        const valKhoroch = parseFloat(banglaToEnglishNumber(tdKhoroch.textContent.replace(/,/g,''))) || 0;
-
-        if (valJoma > valKhoroch) tdName.style.color = "#34d399";
-        else if (valJoma < valKhoroch) tdName.style.color = "#f87171";
-        else tdName.style.color = "#d1d5db";
-    });
-}
-
-// ================== খালি row লুকানোর ফাংশন =================
-function hideEmptyRows(tableId, colIndexes) {
-    const table = document.getElementById(tableId);
-    const rows = table.querySelectorAll("tbody tr");
-    rows.forEach(tr => {
-        let hideRow = false;
-        colIndexes.forEach(i => {
-            const cell = tr.children[i];
-            if (!cell || cell.textContent.trim() === "") hideRow = true;
-        });
-        if (hideRow) tr.style.display = "none";
-    });
-}
-
-// ================== CSV ফেচ =================
-const loadingElement = document.getElementById("loading");
-loadingElement.style.display = "block";
-
-fetch(url)
-    .then(res => {
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        return res.text();
-    })
-    .then(csvText => {
-        const rows = csvText.trim().split("\n").map(r => {
-            let result=[], current='', inQuotes=false;
-            for (let i=0;i<r.length;i++){
-                const char=r[i];
-                if(char==='"'){ inQuotes=!inQuotes; }
-                else if(char===',' && !inQuotes){ result.push(current); current=''; }
-                else { current+=char; }
-            }
-            result.push(current);
-            return result;
-        });
-
-        // কলাম ইনডেক্স
-        const cols1=[38,39], cols2=[41,42], cols3=[44,45], cols4=[0,1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35],
-              cols5=[37,38,39,41,42,43,44,45], cols6=[47,48,49,50,51,52,53,54,55,56], cols7=[48,49], cols8=[51,52];
-
-        // টেবিল বিল্ড
-        buildTable("table1", rows.slice(58,63), cols1);
-        buildTable("table2", rows.slice(58,61), cols2);
-        buildTable("table3", rows.slice(58,62), cols3);
-        buildTable("table4", rows.slice(2,53), cols4);
-        hideEmptyRows("table4", [1]); // table4 column2 খালি row হাইড
-        buildTable("table5", rows.slice(2,52), cols5);
-        hideEmptyRows("table5", [1]); // table5 column2 খালি row হাইড
-        buildTable("table6", rows.slice(2,34), cols6);
-        buildTable("table7", rows.slice(37,48), cols7);
-        buildTable("table8", rows.slice(37,48), cols8);
-
-        // রঙ করা
-        colorTable5();
-        loadingElement.style.display = "none";
-    })
-    .catch(err => {
-        console.error("শীট লোড করতে সমস্যা:", err);
-        loadingElement.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ডেটা লোড করতে সমস্যা হয়েছে: ${err.message}`;
-        loadingElement.style.color = "#f87171";
-    });
-</script>
+    <script src="script.js"></script>
 </body>
+
 </html>
