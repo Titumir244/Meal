@@ -1,3 +1,4 @@
+/* ===== CSS RESET & BASE STYLES ===== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,9 +6,27 @@
     font-family: 'Segoe UI', 'SolaimanLipi', sans-serif;
 }
 
+:root {
+    /* Color Palette */
+    --primary-blue: #1e3c72;
+    --secondary-blue: #2a5298;
+    --accent-blue: #2563eb;
+    --light-blue: #3b82f6;
+    --success-green: #34d399;
+    --error-red: #f87171;
+    --neutral-blue: #60a5fa;
+    --background: #f5f7fa;
+    --surface: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #6c757d;
+    --border: #dee2e6;
+    --hover: #e9ecef;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
 body {
-    background-color: #f5f7fa;
-    color: #333;
+    background-color: var(--background);
+    color: var(--text-primary);
     line-height: 1.6;
     padding: 10px;
 }
@@ -17,14 +36,15 @@ body {
     margin: 0 auto;
 }
 
+/* ===== HEADER STYLES ===== */
 header {
     text-align: center;
     margin-bottom: 20px;
     padding: 15px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow);
 }
 
 h1 {
@@ -37,16 +57,16 @@ h1 {
     opacity: 0.9;
 }
 
-/* ট্যাব স্টাইল */
+/* ===== TAB STYLES ===== */
 .tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
-    background: white;
+    background: var(--surface);
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--shadow);
 }
 
 .tab-btn {
@@ -55,8 +75,8 @@ h1 {
     cursor: pointer;
     border: none;
     border-radius: 8px;
-    background-color: #e9ecef;
-    color: #495057;
+    background-color: var(--hover);
+    color: var(--text-secondary);
     transition: all 0.3s ease;
     flex: 1;
     min-width: 150px;
@@ -64,24 +84,26 @@ h1 {
 }
 
 .tab-btn:hover {
-    background-color: #dee2e6;
+    background-color: var(--border);
+    transform: translateY(-2px);
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
     color: white;
     box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+    transform: translateY(-2px);
 }
 
-/* সেকশন স্টাইল */
+/* ===== SECTION STYLES ===== */
 .section {
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease;
-    background: white;
+    background: var(--surface);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow);
     margin-bottom: 20px;
 }
 
@@ -93,16 +115,18 @@ h1 {
 .section-header {
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #e9ecef;
-    color: #1e3c72;
+    border-bottom: 2px solid var(--border);
+    color: var(--primary-blue);
+    font-size: 18px;
+    font-weight: 600;
 }
 
-/* টেবিল স্টাইল */
+/* ===== TABLE STYLES ===== */
 .table-container {
     overflow-x: auto;
     margin-bottom: 20px;
     border-radius: 8px;
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--border);
 }
 
 table {
@@ -111,15 +135,14 @@ table {
     font-size: 14px;
 }
 
-th,
-td {
-    border: 1px solid #dee2e6;
+th, td {
+    border: 1px solid var(--border);
     padding: 10px 8px;
     text-align: center;
 }
 
 th {
-    background-color: #1e3c72;
+    background-color: var(--primary-blue);
     color: white;
     font-weight: 600;
     position: sticky;
@@ -131,9 +154,10 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-    background-color: #e9ecef;
+    background-color: var(--hover);
 }
 
+/* ===== LAYOUT STYLES ===== */
 .flex {
     display: flex;
     gap: 20px;
@@ -141,67 +165,52 @@ tr:hover {
     padding: 10px 0;
 }
 
-.flex>* {
+.flex > * {
     flex: 1;
     min-width: 300px;
 }
 
-/* লোডিং স্টাইল */
+.col {
+    display: flex;
+    justify-content: space-between;
+}
+
+.color {
+    display: flex;
+    font-size: 18px;
+    gap: 30px;
+}
+
+/* ===== LOADING STYLES ===== */
 .loading {
     text-align: center;
     padding: 30px;
     font-size: 18px;
-    color: #6c757d;
+    color: var(--text-secondary);
 }
 
 .loading i {
     margin-right: 10px;
-    color: #2563eb;
+    color: var(--accent-blue);
 }
 
-/* রেসপন্সিভ ডিজাইন */
-@media (max-width: 768px) {
-    .tabs {
-        flex-direction: column;
-    }
-
-    .tab-btn {
-        width: 100%;
-    }
-
-    .flex {
-        flex-direction: column;
-    }
-
-    .container {
-        padding: 5px;
-    }
-
-    table {
-        font-size: 12px;
-    }
-
-    th,
-    td {
-        padding: 6px 4px;
-    }
-}
-
-/* রঙের ক্লাস */
+/* ===== COLOR CLASSES ===== */
 .positive {
-    color: #34d399;
+    color: var(--success-green);
     font-weight: bold;
 }
 
 .negative {
-    color: #f87171;
+    color: var(--error-red);
     font-weight: bold;
 }
 
 .neutral {
-    color: #60a5fa;
+    color: var(--neutral-blue);
+    font-weight: bold;
 }
 
+/* ===== SPECIFIC TABLE STYLES ===== */
 #table1 tbody tr:nth-child(1),
 #table2 tbody tr:nth-child(1),
 #table3 tbody tr:nth-child(1),
@@ -227,16 +236,40 @@ tr:hover {
     font-weight: bolder;
     font-size: 41px;
 }
+
 #table3 tbody tr:nth-child(3) {
     font-weight: bolder;
 }
-.col {
-    display: flex;
-    justify-content: space-between;
-}
 
-.color {
-    display: flex;
-    font-size: 18px;
-    gap: 30px;
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px 4px;
+    }
+    
+    .color {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 16px;
+    }
 }
