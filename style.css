@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'SolaimanLipi', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 10px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ট্যাব স্টাইল */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #e9ecef;
+    color: #495057;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 150px;
+    font-weight: 600;
+}
+
+.tab-btn:hover {
+    background-color: #dee2e6;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: white;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* সেকশন স্টাইল */
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.section.show {
+    display: block;
+    opacity: 1;
+}
+
+.section-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+    color: #1e3c72;
+}
+
+/* টেবিল স্টাইল */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+
+th,
+td {
+    border: 1px solid #dee2e6;
+    padding: 10px 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #1e3c72;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
+
+.flex {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.flex>* {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* লোডিং স্টাইল */
+.loading {
+    text-align: center;
+    padding: 30px;
+    font-size: 18px;
+    color: #6c757d;
+}
+
+.loading i {
+    margin-right: 10px;
+    color: #2563eb;
+}
+
+/* রেসপন্সিভ ডিজাইন */
+@media (max-width: 768px) {
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 6px 4px;
+    }
+}
+
+/* রঙের ক্লাস */
+.positive {
+    color: #34d399;
+    font-weight: bold;
+}
+
+.negative {
+    color: #f87171;
+    font-weight: bold;
+}
+
+.neutral {
+    color: #60a5fa;
+}
+
+#table1 tbody tr:nth-child(1),
+#table2 tbody tr:nth-child(1),
+#table3 tbody tr:nth-child(1),
+#table4 tbody tr:nth-child(51),
+#table4 tbody td:nth-child(2),
+#table4 tbody td:nth-child(3),
+#table4 tbody td:nth-child(35),
+#table5 tbody td:nth-child(2),
+#table5 tbody td:nth-child(4),
+#table6 tbody tr:nth-child(32),
+#table6 tbody td:nth-child(2),
+#table6 tbody td:nth-child(3),
+#table6 tbody td:nth-child(8),
+#table6 tbody td:nth-child(10),
+#table7 tbody tr:nth-child(1),
+#table7 tbody tr:nth-child(11),
+#table8 tbody tr:nth-child(1),
+#table8 tbody tr:nth-child(11) {
+    font-weight: bold;
+}
+
+#table2 tbody tr:nth-child(4) td:nth-child(1) {
+    font-weight: bolder;
+    font-size: 41px;
+}
+#table3 tbody tr:nth-child(3) {
+    font-weight: bolder;
+}
+.col {
+    display: flex;
+    justify-content: space-between;
+}
+
+.color {
+    display: flex;
+    font-size: 18px;
+    gap: 30px;
+}
