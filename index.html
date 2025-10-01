@@ -79,7 +79,56 @@
 
     <section class="section mil">
         <h2 class="section-header"><i class="fas fa-utensils"></i> মিলের তথ্য</h2>
-        <div class="table-container"><table id="table4"><thead><tr><th colspan="35"><h3>অক্টোবর-২০২৫</h3></th></tr></thead><tbody></tbody></table></div>
+        <div class="table-container">
+            <table id="table4">
+                <thead>
+                    <tr>
+                        <th colspan="35"><h3>অক্টোবর-২০২৫</h3></th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">ক্রমিক</th>
+                        <th rowspan="2">নাম</th>
+                        <th rowspan="2">রুম</th>
+                        <th colspan="31">তারিখ</th>
+                        <th rowspan="2">মোট</th>
+                    </tr>
+                    <tr>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+  <th>4</th>
+  <th>5</th>
+  <th>6</th>
+  <th>7</th>
+  <th>8</th>
+  <th>9</th>
+  <th>10</th>
+  <th>11</th>
+  <th>12</th>
+  <th>13</th>
+  <th>14</th>
+  <th>15</th>
+  <th>16</th>
+  <th>17</th>
+  <th>18</th>
+  <th>19</th>
+  <th>20</th>
+  <th>21</th>
+  <th>22</th>
+  <th>23</th>
+  <th>24</th>
+  <th>25</th>
+  <th>26</th>
+  <th>27</th>
+  <th>28</th>
+  <th>29</th>
+  <th>30</th>
+  <th>31</th>
+</tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </section>
 
     <section class="section joma">
@@ -231,7 +280,7 @@ fetch(url)
         buildTable("table1", rows.slice(58,63), cols1);
         buildTable("table2", rows.slice(58,61), cols2);
         buildTable("table3", rows.slice(58,62), cols3);
-        buildTable("table4", rows.slice(1,53), cols4);
+        buildTable("table4", rows.slice(2,53), cols4);
         hideEmptyRows("table4", [1]); // table4 column2 খালি row হাইড
         buildTable("table5", rows.slice(2,52), cols5);
         hideEmptyRows("table5", [1]); // table5 column2 খালি row হাইড
