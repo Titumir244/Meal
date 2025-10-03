@@ -87,11 +87,11 @@ function colorTable5() {
         const valCol4 = tdCol4.textContent.trim();
 
         if (valCol4 === "০") tdCol4.style.color = "#f87171";
-        else if (valCol4 === "১") tdCol4.style.color = "#60a5fa";
+        else if (valCol4 === "১") tdCol4.style.color = "#8404acff"";
         else if (valCol4 === "২") tdCol4.style.color = "#34d399";
 
         if (valJoma > valKhoroch) tdName.style.color = "#34d399";
-        else if (valJoma < valKhoroch) tdName.style.color = "#f87171";
+        else if (valJoma < valKhoroch) tdName.style.color = "#03ad6fff";
         else tdName.style.color = "#60a5fa";
     });
 }
@@ -214,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function() {
             loadingElement.style.color = "#f87171";
         });
 });
+
 
 
 
