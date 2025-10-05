@@ -86,10 +86,9 @@ function colorTable5() {
         const valKhoroch = parseFloat(banglaToEnglishNumber(tdKhoroch.textContent.replace(/,/g, ''))) || 0;
         const valCol4 = tdCol4.textContent.trim();
 
-        if (valCol4 === "০") tdCol4.style.color = "#f87171";
-        else if (valCol4 === "১") tdCol4.style.color = "#60a5fa";
+        if (valCol4 === "১") tdCol4.style.color = "#f87171";
+        /*else if (valCol4 === "১") tdCol4.style.color = "#A855f7";*/
         else if (valCol4 === "২") tdCol4.style.color = "#34d399";
-
         if (valJoma > valKhoroch) tdName.style.color = "#34d399";
         else if (valJoma < valKhoroch) tdName.style.color = "#f87171";
         else tdName.style.color = "#60a5fa";
@@ -215,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function() {
             loadingElement.style.color = "#f87171";
         });
 });
+
 
 
 
