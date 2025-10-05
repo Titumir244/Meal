@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   cols5 = [37, 38, 39, 41, 42, 44, 45, 46, 47], 
                   cols6 = [49, 50, 51, 52, 53, 54, 55, 56, 57, 58], 
                   cols7 = [50, 51], 
-                  cols8 = [53, 54];
+                  cols8 = [53, 54, 55];
 
             // টেবিল বিল্ড
             buildTable("table1", rows.slice(58, 63), cols1);
@@ -199,11 +199,12 @@ document.addEventListener("DOMContentLoaded", function() {
             buildTable("table7", rows.slice(37, 48), cols7);
             buildTable("table8", rows.slice(37, 48), cols8);
             
-            // table2 এবং table3 মার্জ
+            // table2, table3 এবং table8 মার্জ
             mergeTwoCells("table2", 3, 1, 2);
             mergeTwoCells("table2", 4, 1, 2);
             mergeTwoCells("table3", 2, 1, 2);
             mergeTwoCells("table3", 3, 1, 2);
+            mergeTwoCells("table8", 11, 1, 2);
 
             colorTable5();
             loadingElement.style.display = "none";
@@ -214,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
             loadingElement.style.color = "#f87171";
         });
 });
+
 
 
 
