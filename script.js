@@ -109,6 +109,80 @@ function hideEmptyRows(tableId, colIndexes) {
     });
 }
 
+// ================== খালি columns লুকানোর ফাংশন =================
+function removeEmptyColumns(tableId) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+
+    const thead = table.querySelector("thead");
+    const tbody = table.querySelector("tbody");
+    if (!thead || !tbody) return;
+
+    const allRows = [...thead.rows, ...tbody.rows];
+    const rowCount = allRows.length;
+
+    // logical matrix তৈরি (rowspan aware)
+    const matrix = [];
+    const cellMatrix = []; // physical cell reference
+    for (let r = 0; r < rowCount; r++) {
+        matrix[r] = [];
+        cellMatrix[r] = [];
+    }
+
+    for (let r = 0; r < rowCount; r++) {
+        const row = allRows[r];
+        let colIndex = 0;
+        for (let c = 0; c < row.cells.length; c++) {
+            const cell = row.cells[c];
+            const colspan = parseInt(cell.colSpan) || 1;
+            const rowspan = parseInt(cell.rowSpan) || 1;
+
+            // free index খুঁজে বের করা
+            while (matrix[r][colIndex] !== undefined) colIndex++;
+
+            for (let i = 0; i < rowspan; i++) {
+                for (let j = 0; j < colspan; j++) {
+                    const rr = r + i;
+                    const cc = colIndex + j;
+                    matrix[rr][cc] = true; // occupancy map
+                    cellMatrix[rr][cc] = cell; // physical reference
+                }
+            }
+            colIndex += colspan;
+        }
+    }
+
+    const maxCols = Math.max(...matrix.map(r => r.length));
+    const emptyCols = [];
+
+    // tbody-only check, skip last column (মোট)
+    const tbodyStart = thead.rows.length;
+    const lastColIndex = maxCols - 1;
+    for (let c = 0; c < lastColIndex; c++) {
+        let isEmpty = true;
+        for (let r = tbodyStart; r < rowCount; r++) {
+            const cell = cellMatrix[r][c];
+            if (cell && cell.textContent.trim() !== "") {
+                isEmpty = false;
+                break;
+            }
+        }
+        if (isEmpty) emptyCols.push(c);
+    }
+
+    // delete empty columns (thead + tbody)
+    emptyCols.reverse().forEach(colIndex => {
+        for (let r = 0; r < rowCount; r++) {
+            const cell = cellMatrix[r][colIndex];
+            if (!cell) continue;
+
+            const colspan = parseInt(cell.colSpan) || 1;
+            if (colspan > 1) cell.colSpan = colspan - 1;
+            else cell.remove();
+        }
+    });
+}
+
 // ================== CSV পার্সার =================
 function parseCSV(csvText) {
     return csvText.trim().split("\n").map(r => {
@@ -168,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
             buildTable("table3", rows.slice(58, 63), cols3);
             buildTable("table4", rows.slice(2, 53), cols4);
             hideEmptyRows("table4", [1]);
+            removeEmptyColumns("table4");
             
             // table4 এর 51তম row মার্জ
             const cell51 = document.querySelector("#table4 tbody tr:nth-child(51) td:nth-child(1)");
@@ -214,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
             loadingElement.style.color = "#f87171";
         });
 });
+
 
 
 
