@@ -126,7 +126,7 @@ h1 {
     overflow-x: auto;
     margin-bottom: 20px;
     border-radius: 8px;
-    border: 2px solid var(--border);
+    border: 1px solid var(--border);
 }
 
 table {
@@ -147,6 +147,10 @@ th {
     font-weight: 600;
     position: sticky;
     top: 0;
+}
+
+#table4 tr th {
+    border: 2px solid var(--border)
 }
 
 tr:nth-child(even) {
@@ -289,4 +293,5 @@ tr:hover {
 #table4 tr:not(:last-child) td:nth-child(2) {
     text-align: start;
 }
+
 
