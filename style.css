@@ -214,25 +214,37 @@ tr:hover {
     font-weight: bold;
 }
 
-/* ===== SPECIFIC TABLE STYLES ===== */
-#table1 tbody tr:nth-child(1),
-#table2 tbody tr:nth-child(1),
-#table3 tbody tr:nth-child(1),
-#table4 tbody tr:nth-child(51),
+/* ====== প্রথম row (first-child) ====== */
+#table1 tbody tr:first-child,
+#table2 tbody tr:first-child,
+#table3 tbody tr:first-child,
+#table7 tbody tr:first-child,
+#table8 tbody tr:first-child,
+
+/* ====== শেষ row (last-child) ====== */
+#table4 tbody tr:last-child,
+#table6 tbody tr:last-child,
+#table7 tbody tr:last-child,
+#table8 tbody tr:last-child,
+
+/* ====== নির্দিষ্ট columns ====== */
+/* table4 columns */
 #table4 tbody td:nth-child(2),
 #table4 tbody td:nth-child(3),
-#table4 tbody td:nth-child(35),
+#table4 tbody td:last-child,
+
+/* table5 columns */
 #table5 tbody td:nth-child(2),
-#table5 tbody td:nth-child(4),
-#table6 tbody tr:nth-child(32),
+#table5 tbody td:nth-child(5),
+#table5 tbody td:nth-child(6),
+#table5 tbody td:last-child,
+
+/* table6 columns */
 #table6 tbody td:nth-child(2),
 #table6 tbody td:nth-child(3),
 #table6 tbody td:nth-child(8),
-#table6 tbody td:nth-child(10),
-#table7 tbody tr:nth-child(1),
-#table7 tbody tr:nth-child(11),
-#table8 tbody tr:nth-child(1),
-#table8 tbody tr:nth-child(11) {
+#table6 tbody td:nth-child(9),
+#table6 tbody td:last-child {
     font-weight: bold;
 }
 
@@ -293,5 +305,6 @@ tr:hover {
 #table4 tr:not(:last-child) td:nth-child(2) {
     text-align: start;
 }
+
 
 
