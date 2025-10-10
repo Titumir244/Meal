@@ -135,7 +135,8 @@ table {
     font-size: 14px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid var(--border);
     padding: 10px 8px;
     text-align: center;
@@ -169,7 +170,7 @@ tr:hover {
     padding: 10px 0;
 }
 
-.flex > * {
+.flex>* {
     flex: 1;
     min-width: 300px;
 }
@@ -264,15 +265,28 @@ tr:hover {
     position: sticky;
     z-index: 2;
 }
+
 /* Sticky left columns */
-#table4 td:nth-child(1), #table4 th:nth-child(1) { left: 0; }
-#table4 tr:not(:last-child) td:nth-child(2), #table4 tr:nth-child(2) th:nth-child(2) { left: 54px; min-width: 104px; }
-#table4 td:nth-child(3), #table4 th:nth-child(3) { left: 158px; }
+#table4 td:nth-child(1),
+#table4 th:nth-child(1) {
+    left: 0;
+}
+
+#table4 tr:not(:last-child) td:nth-child(2),
+#table4 tr:nth-child(2) th:nth-child(2) {
+    left: 54px;
+    min-width: 104px;
+}
+
+#table4 td:nth-child(3),
+#table4 th:nth-child(3) {
+    left: 158px;
+}
 
 /* Sticky right column 35 */
-#table4 td:nth-child(35),
-#table4 tr:last-child td:nth-child(33),
-#table4 tr:nth-child(2) th:nth-child(5) {
+#table4 td:last-child,
+/* #table4 tr:last-child td:nth-child(33), */
+#table4 tr:nth-child(2) th:last-child {
     position: sticky;
     right: 0;
     z-index: 2;
@@ -280,19 +294,19 @@ tr:hover {
 
 /* Alternating row colors */
 #table4 tr:nth-child(even) td:nth-child(-n+3),
-#table4 tr:nth-child(even) td:nth-child(35),
-#table4 tr:last-child td:nth-child(33) {
+#table4 tr:nth-child(even) td:last-child,
+#table4 tr:last-child td:last-child {
     background-color: #f8f9fa;
 }
 
 #table4 tr:nth-child(odd) td:nth-child(-n+3),
-#table4 tr:nth-child(odd) td:nth-child(35) {
+#table4 tr:nth-child(odd) td:last-child {
     background-color: #fff;
 }
 
 /* Hover effect all rows (including last) */
 #table4 tr:hover td:nth-child(-n+3),
-#table4 tr:hover td:nth-child(35) {
+#table4 tr:hover td:last-child {
     background-color: var(--hover);
     z-index: 3;
 }
@@ -302,9 +316,7 @@ tr:hover {
 #table4 tr:nth-child(2) th:nth-child(5) {
     background-color: var(--primary-blue);
 }
+
 #table4 tr:not(:last-child) td:nth-child(2) {
     text-align: start;
 }
-
-
-
