@@ -252,6 +252,7 @@ tr:hover {
 #table2 tbody tr:nth-child(4) td:nth-child(1) {
     font-weight: bolder;
     font-size: 41px;
+    background-color: #e9ecef;
 }
 
 #table3 tbody tr:nth-child(3) {
@@ -294,12 +295,11 @@ tr:hover {
 
 /* Alternating row colors */
 #table4 tr:nth-child(even) td:nth-child(-n+3),
-#table4 tr:nth-child(even) td:last-child,
-#table4 tr:last-child td:last-child {
+#table4 tr:nth-child(even) td:last-child {
     background-color: #f8f9fa;
 }
 
-#table4 tr:nth-child(odd) td:nth-child(-n+3),
+#table4 tr:nth-child(odd):not(:last-child) td:nth-child(-n+3),
 #table4 tr:nth-child(odd) td:last-child {
     background-color: #fff;
 }
@@ -319,4 +319,10 @@ tr:hover {
 
 #table4 tr:not(:last-child) td:nth-child(2) {
     text-align: start;
+}
+
+#table4 tr:last-child,
+#table4 tr:last-child td:last-child {
+    background-color: #e9ecef;
+    border-top: 2px solid #1e3c72;
 }
