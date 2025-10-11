@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             buildTable("table7", rows.slice(38, 48), cols7);
             buildTable("table8", rows.slice(38, 48), cols8);
-            buildTable("table9", rows.slice(38, 48), cols8);
+            buildTable("table9", rows.slice(38, 48), cols9);
 
             // table2, table3 এবং table8 মার্জ
             mergeTwoCells("table2", 3, 1, 2);
@@ -293,4 +293,5 @@ document.addEventListener("DOMContentLoaded", function () {
             loadingElement.style.color = "#f87171";
         });
 });
+
 
