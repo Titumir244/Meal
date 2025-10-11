@@ -270,16 +270,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (next) next.remove();
             }
 
-            buildTable("table7", rows.slice(37, 48), cols7);
-            buildTable("table8", rows.slice(37, 48), cols8);
+            buildTable("table7", rows.slice(38, 48), cols7);
+            buildTable("table8", rows.slice(38, 48), cols8);
 
             // table2, table3 এবং table8 মার্জ
             mergeTwoCells("table2", 3, 1, 2);
             mergeTwoCells("table2", 4, 1, 2);
             mergeTwoCells("table3", 2, 1, 2);
             mergeTwoCells("table3", 3, 1, 2);
-            mergeTwoCells("table7", 11, 1, 2);
-            mergeTwoCells("table8", 11, 1, 2);
+            mergeTwoCells("table7", 10, 1, 2);
+            mergeTwoCells("table8", 10, 1, 2);
 
             colorTable5();
             loadingElement.style.display = "none";
