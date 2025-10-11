@@ -325,8 +325,9 @@ tr:hover {
 
 /* Hover effect all rows (including last) */
 #table4 tr:hover td,
-#table4 tr:nth-child(odd):hover td,
-#table4 tr:nth-child(even):hover td {
+#table4 tr:nth-child(odd):hover td:nth-child(-n+3),
+#table4 tr:nth-child(even):hover td,
+#table4 tr:hover td:last-child {
     background-color: #ccd0d3;
     z-index: 3;
 }
