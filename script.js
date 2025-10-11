@@ -233,8 +233,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 cols4 = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],
                 cols5 = [37, 38, 39, 41, 42, 44, 45, 46, 47],
                 cols6 = [49, 50, 51, 52, 53, 54, 55, 56, 57, 58],
-                cols7 = [50, 51, 52],
-                cols8 = [54, 55, 56];
+                cols7 = [49, 50, 51],
+                cols8 = [53, 54, 55];
+            cols9 = [57, 58, 59];
 
             // টেবিল বিল্ড
             buildTable("table1", rows.slice(58, 63), cols1);
@@ -272,6 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             buildTable("table7", rows.slice(38, 48), cols7);
             buildTable("table8", rows.slice(38, 48), cols8);
+            buildTable("table9", rows.slice(38, 48), cols8);
 
             // table2, table3 এবং table8 মার্জ
             mergeTwoCells("table2", 3, 1, 2);
@@ -280,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
             mergeTwoCells("table3", 3, 1, 2);
             mergeTwoCells("table7", 10, 1, 2);
             mergeTwoCells("table8", 10, 1, 2);
+            mergeTwoCells("table9", 10, 1, 2);
 
             colorTable5();
             loadingElement.style.display = "none";
