@@ -150,7 +150,9 @@ th {
     top: 0;
 }
 
-#table4 tr th {
+#table4 tr th,
+#table7 tr th,
+#table8 tr th {
     border: 2px solid var(--border)
 }
 
@@ -219,8 +221,6 @@ tr:hover {
 #table1 tbody tr:first-child,
 #table2 tbody tr:first-child,
 #table3 tbody tr:first-child,
-#table7 tbody tr:first-child,
-#table8 tbody tr:first-child,
 
 /* ====== শেষ row (last-child) ====== */
 #table4 tbody tr:last-child,
