@@ -304,13 +304,6 @@ tr:hover {
     background-color: #fff;
 }
 
-/* Hover effect all rows (including last) */
-#table4 tr:hover td:nth-child(-n+3),
-#table4 tr:hover td:last-child {
-    background-color: var(--hover);
-    z-index: 3;
-}
-
 /* Sticky header */
 #table4 tr:nth-child(2) th:nth-child(-n+3),
 #table4 tr:nth-child(2) th:nth-child(5) {
@@ -329,3 +322,12 @@ tr:hover {
     background-color: #e9ecef;
     border-top: 2px solid #1e3c72;
 }
+
+/* Hover effect all rows (including last) */
+#table4 tr:hover td,
+#table4 tr:nth-child(odd):hover td,
+#table4 tr:nth-child(even):hover td {
+    background-color: #ccd0d3;
+    z-index: 3;
+}
+
