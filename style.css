@@ -286,7 +286,7 @@ tr:hover {
 
 #table4 td:nth-child(3),
 #table4 th:nth-child(3) {
-    left: 158px;
+    left: 157px;
 }
 
 /* Sticky right column 35 */
@@ -342,3 +342,4 @@ tr:hover {
     background-color: #ccd0d3;
     z-index: 3;
 }
+
