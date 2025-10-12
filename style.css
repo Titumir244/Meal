@@ -280,13 +280,13 @@ tr:hover {
 
 #table4 tr:not(:last-child) td:nth-child(2),
 #table4 tr:nth-child(2) th:nth-child(2) {
-    left: 54px;
+    left: 53px;
     min-width: 104px;
 }
 
 #table4 td:nth-child(3),
 #table4 th:nth-child(3) {
-    left: 157px;
+    left: 155px;
 }
 
 /* Sticky right column 35 */
@@ -330,7 +330,8 @@ tr:hover {
     border-top: 2px solid #1e3c72;
 }
 
-#table4 tr:not(:last-child) td:last-child {
+#table4 tr:not(:last-child) td:last-child,
+#table4 tr:last-child td:first-child {
     background-color: #e9ecef;
 }
 
@@ -342,4 +343,3 @@ tr:hover {
     background-color: #ccd0d3;
     z-index: 3;
 }
-
