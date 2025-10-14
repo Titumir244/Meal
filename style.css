@@ -320,12 +320,12 @@ tr:hover {
     text-align: start;
 }
 
-#table4 tr:last-child,
+#table4 tr:last-child td,
 #table4 tr:last-child td:last-child,
-#table6 tr:last-child,
-#table7 tr:last-child,
-#table8 tr:last-child,
-#table9 tr:last-child {
+#table6 tr:last-child td,
+#table7 tr:last-child td,
+#table8 tr:last-child td,
+#table9 tr:last-child td {
     background-color: #e9ecef;
     border-top: 3px solid #1e3c72;
 }
@@ -344,3 +344,6 @@ tr:hover {
     z-index: 3;
 }
 
+#table4 tr:nth-child(44) td {
+    border-bottom: 2px solid #1e3c72;
+}
