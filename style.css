@@ -327,7 +327,7 @@ tr:hover {
 #table8 tr:last-child,
 #table9 tr:last-child {
     background-color: #e9ecef;
-    border-top: 2px solid #1e3c72;
+    border-top: 3px solid #1e3c72;
 }
 
 #table4 tr:not(:last-child) td:last-child,
@@ -343,3 +343,4 @@ tr:hover {
     background-color: #ccd0d3;
     z-index: 3;
 }
+
