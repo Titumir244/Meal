@@ -183,6 +183,53 @@ function removeEmptyColumns(tableId) {
     });
 }
 
+
+// ================== #table4 এর ৩নং কলামে ১০০–৪০০ শতকের সর্বোচ্চ মানের পর মোটা বর্ডার =================
+function addBorderAfterMaxInHundreds_table4() {
+    const table = document.getElementById("table4");
+    if (!table) return;
+
+    const rows = table.querySelectorAll("tbody tr");
+    const values = [];
+
+    // সব মান সংগ্রহ
+    rows.forEach(row => {
+        const cell = row.children[2]; // ৩নং কলাম
+        if (!cell) return;
+
+        const val = parseInt(banglaToEnglishNumber(cell.textContent.trim()));
+        if (!isNaN(val) && val >= 100 && val < 500) {
+            values.push({ row, val });
+        }
+    });
+
+    // প্রতি শতকের মধ্যে সর্বোচ্চ মান বের করি
+    const maxMap = {};
+    values.forEach(({ val }) => {
+        const hundred = Math.floor(val / 100);
+        if (!maxMap[hundred] || val > maxMap[hundred]) {
+            maxMap[hundred] = val;
+        }
+    });
+
+    // সব রো ঘুরে বর্ডার বসাই
+    rows.forEach(row => {
+        const cell = row.children[2];
+        if (!cell) return;
+
+        const val = parseInt(banglaToEnglishNumber(cell.textContent.trim()));
+        const hundred = Math.floor(val / 100);
+
+        // শুধুমাত্র ১০০–৪০০ এর মধ্যে হলে বর্ডার চেক হবে
+        if (val >= 100 && val < 500 && maxMap[hundred] === val) {
+            row.style.borderBottom = "2px solid #1e3c72"; // মোটা কালো বর্ডার
+        } else {
+            row.style.borderBottom = "";
+        }
+    });
+}
+
+
 // ================== CSV পার্সার =================
 function parseCSV(csvText) {
     return csvText.trim().split("\n").map(r => {
@@ -244,6 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
             buildTable("table4", rows.slice(2, 53), cols4);
             hideEmptyRows("table4", [1]);
             removeEmptyColumns("table4");
+            addBorderAfterMaxInHundreds_table4();
 
             // table4 এর 51তম row মার্জ
             const cell51 = document.querySelector("#table4 tbody tr:nth-child(51) td:nth-child(1)");
@@ -293,5 +341,6 @@ document.addEventListener("DOMContentLoaded", function () {
             loadingElement.style.color = "#f87171";
         });
 });
+
 
 
