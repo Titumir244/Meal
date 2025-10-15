@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             buildTable("table5", rows.slice(2, 52), cols5);
             hideEmptyRows("table5", [1]);
-            addBorderAfterMaxInHundreds("table4");
+            addBorderAfterMaxInHundreds("table5");
             buildTable("table6", rows.slice(2, 34), cols6);
 
             // table6 এর 32তম row মার্জ
@@ -340,6 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loadingElement.style.color = "#f87171";
         });
 });
+
 
 
 
