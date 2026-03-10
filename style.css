@@ -344,9 +344,5 @@ tr:hover {
     z-index: 3;
 }
 
-#table4 tr:nth-child(45) td,
-#table5 tr:nth-child(45) td {
-    border-bottom: 2px solid #1e3c72;
-}
 
 
