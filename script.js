@@ -140,20 +140,22 @@ function colorTable5() {
 }
 
 
-const colors = {
-    "মুরগী": "#FFE5B4",
-    "মাছ": "#B3E5FC",
-    "রোস্ট": "#FFCDD2",
-    "গরু": "#D7CCC8",
-    "ডিম": "#FFF9C4"
-};
+function colorTable6() {
+    const colors = {
+        "মুরগী": "#FFE5B4",
+        "মাছ": "#B3E5FC",
+        "রোস্ট": "#FFCDD2",
+        "গরু": "#D7CCC8",
+        "ডিম": "#FFF9C4"
+    };
 
-document.querySelectorAll("#table6 td").forEach(cell => {
-    let text = cell.innerText.trim();
-    if (colors[text]) {
-        cell.style.backgroundColor = colors[text];
-    }
-});
+    document.querySelectorAll("#table6 td").forEach(cell => {
+        let text = cell.innerText.trim();
+        if (colors[text]) {
+            cell.style.backgroundColor = colors[text];
+        }
+    });
+}
 // ================== খালি row লুকানোর ফাংশন =================
 /**
  * নির্দিষ্ট কলাম খালি থাকলে row লুকিয়ে দেয়
@@ -417,6 +419,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // টেবিল ৬ প্রসেসিং
             buildTable("table6", rows.slice(2, 34), cols6);
+colorTable6();
             
             // টেবিল ৬ এর 32তম row মার্জ (মোট row)
             const cell32 = document.querySelector("#table6 tbody tr:nth-child(32) td:nth-child(1)");
