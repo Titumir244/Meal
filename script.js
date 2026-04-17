@@ -152,7 +152,7 @@ function colorTable6() {
     document.querySelectorAll("#table6 td").forEach(cell => {
         let text = cell.innerText.trim();
         if (colors[text]) {
-            cell.style.backgroundColor = colors[text];
+            cell.style.Color = colors[text];
         }
     });
 }
