@@ -142,12 +142,12 @@ function colorTable5() {
 
 function colorTable6() {
     const colors = {
-        "মুরগী": "#e67e22", // কমলা
-        "মাছ": "#3498db",  // নীল
-        "রোস্ট": "#e74c3c", // লাল
-        "গরু": "#8e6e53",  // ব্রাউন
-        "ডিম": "#f1c40f"   // হলুদ
-    };
+        "মুরগী": "#10B981", // emerald green
+        "মাছ": "#6366F1",  // indigo
+        "রোস্ট": "#F43F5E", // rose pink
+        "গরু": "#6B7280",  // cool gray
+        "ডিম": "#F59E0B"   // amber
+        };
 
     document.querySelectorAll("#table6 td").forEach(cell => {
         let text = cell.innerText.trim();
