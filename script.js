@@ -419,7 +419,6 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // টেবিল ৬ প্রসেসিং
             buildTable("table6", rows.slice(2, 34), cols6);
-colorTable6();
             
             // টেবিল ৬ এর 32তম row মার্জ (মোট row)
             const cell32 = document.querySelector("#table6 tbody tr:nth-child(32) td:nth-child(1)");
@@ -431,7 +430,8 @@ colorTable6();
                 next = cell32.nextElementSibling;
                 if (next) next.remove();
             }
-
+// টেবিল ৬ এর color দােওয়া
+colorTable6();
             // অন্যান্য টেবিল বিল্ড
             buildTable("table7", rows.slice(38, 48), cols7);
             buildTable("table8", rows.slice(38, 48), cols8);
