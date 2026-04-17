@@ -346,9 +346,8 @@ tr:hover {
 
 
 #table6 tbody tr:nth-child(30),
-#table6 tbody tr:nth-child(31),
-#table1 tbody tr:nth-child(2) {
-display: hidden
+#table6 tbody tr:nth-child(31) {
+    display: none;
 }
 
 
