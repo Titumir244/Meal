@@ -145,7 +145,7 @@ function colorTable6() {
         "মুরগী": "#10B981", // emerald green
         "মাছ": "#6366F1",  // indigo
         "রোস্ট": "#F43F5E", // rose pink
-        "গরু": "#6B7280",  // cool gray
+        "গরু": "#A16207",  // amber-brown
         "ডিম": "#F59E0B"   // amber
         };
 
