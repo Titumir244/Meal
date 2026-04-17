@@ -139,6 +139,21 @@ function colorTable5() {
     });
 }
 
+
+const colors = {
+    "মুরগী": "#FFE5B4",
+    "মাছ": "#B3E5FC",
+    "রোস্ট": "#FFCDD2",
+    "গরু": "#D7CCC8",
+    "ডিম": "#FFF9C4"
+};
+
+document.querySelectorAll("#table6 td").forEach(cell => {
+    let text = cell.innerText.trim();
+    if (colors[text]) {
+        cell.style.backgroundColor = colors[text];
+    }
+});
 // ================== খালি row লুকানোর ফাংশন =================
 /**
  * নির্দিষ্ট কলাম খালি থাকলে row লুকিয়ে দেয়
