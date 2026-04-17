@@ -142,18 +142,22 @@ function colorTable5() {
 
 function colorTable6() {
     const colors = {
-        "মুরগী": "#FFE5B4",
-        "মাছ": "#B3E5FC",
-        "রোস্ট": "#FFCDD2",
-        "গরু": "#D7CCC8",
-        "ডিম": "#FFF9C4"
+        "মুরগী": "#e67e22", // কমলা
+        "মাছ": "#3498db",  // নীল
+        "রোস্ট": "#e74c3c", // লাল
+        "গরু": "#8e6e53",  // ব্রাউন
+        "ডিম": "#f1c40f"   // হলুদ
     };
 
     document.querySelectorAll("#table6 td").forEach(cell => {
         let text = cell.innerText.trim();
-        if (colors[text]) {
-            cell.style.Color = colors[text];
-        }
+        let items = text.split("/").map(i => i.trim());
+
+        // নতুন HTML বানানো
+        cell.innerHTML = items.map(item => {
+            let color = colors[item] || "#333";
+            return `<span style="color:${color}; font-weight:600;">${item}</span>`;
+        }).join(" / ");
     });
 }
 // ================== খালি row লুকানোর ফাংশন =================
