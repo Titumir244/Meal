@@ -139,30 +139,33 @@ function colorTable5() {
     });
 }
 
-const colors = {
-    "গরু": "#7C2D12",
-    "রোস্ট": "#BE123C",
-    "other": "#334155",
-    "মুরগী": "#059669",
-    "মাছ": "#4F46E5",
-    "ডিম": "#D97706",
-    "সবজি": "#84CC16"
-};
-
-const icons = {
-    "গরু": "🥩",
-    "রোস্ট": "🍖",
-    "মুরগী": "🍗",
-    "মাছ": "🐟",
-    "ডিম": "🥚",
-    "সবজি": "🥬",
-    "other": "🍽️"
-};
-
-const priority = ["গরু", "রোস্ট", "other", "মুরগী", "মাছ", "ডিম", "সবজি"];
-
 function colorTable6() {
-    document.querySelectorAll("#table6 td").forEach(cell => {
+    const colors = {
+        "গরু": "#7C2D12",
+        "রোস্ট": "#BE123C",
+        "other": "#334155",
+        "মুরগী": "#059669",
+        "মাছ": "#4F46E5",
+        "ডিম": "#D97706",
+        "সবজি": "#84CC16"
+    };
+
+    const icons = {
+        "গরু": "🥩",
+        "রোস্ট": "🍖",
+        "মুরগী": "🍗",
+        "মাছ": "🐟",
+        "ডিম": "🥚",
+        "সবজি": "🥬",
+        "other": "🍽️"
+    };
+
+    const priority = ["গরু", "রোস্ট", "other", "মুরগী", "মাছ", "ডিম", "সবজি"];
+
+    document.querySelectorAll("#table6 tbody tr").forEach(row => {
+        const cell = row.querySelector("td:nth-child(4)");
+        if (!cell) return;
+
         let text = cell.innerText.trim();
         let items = text.split("/").map(i => i.trim());
 
@@ -181,22 +184,17 @@ function colorTable6() {
             }
         }
 
-        // style apply
+        // main color
         cell.style.color = colors[finalType];
         cell.style.fontWeight = (finalType === "গরু" || finalType === "রোস্ট") ? "700" : "500";
 
-        // glow effect for premium items
-        if (finalType === "গরু" || finalType === "রোস্ট") {
-            cell.style.textShadow = "0 0 6px rgba(0,0,0,0.15)";
-        }
-
-        // icon + colored text
+        // icon + multi color text
         cell.innerHTML = items.map(item => {
             let type = icons[item] ? item : "other";
             return `<span style="color:${colors[type]}; margin-right:4px;">
                 ${icons[type]} ${item}
             </span>`;
-        }).join('<span style="color:#999;">/</span>');
+        }).join('<span style="color:#999;"> / </span>');
     });
 }
 
