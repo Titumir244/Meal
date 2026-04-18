@@ -150,16 +150,6 @@ function colorTable6() {
         "সবজি": "#84CC16"
     };
 
-    const icons = {
-        "গরু": "🥩",
-        "রোস্ট": "🍖",
-        "মুরগী": "🍗",
-        "মাছ": "🐟",
-        "ডিম": "🥚",
-        "সবজি": "🥬",
-        "other": "🍽️"
-    };
-
     const priority = ["গরু", "রোস্ট", "other", "মুরগী", "মাছ", "ডিম", "সবজি"];
 
     document.querySelectorAll("#table6 tbody tr").forEach(row => {
@@ -184,16 +174,14 @@ function colorTable6() {
             }
         }
 
-        // main color
+        // main text color (priority অনুযায়ী)
         cell.style.color = colors[finalType];
         cell.style.fontWeight = (finalType === "গরু" || finalType === "রোস্ট") ? "700" : "500";
 
-        // icon + multi color text
+        // multi-item text আলাদা আলাদা color
         cell.innerHTML = items.map(item => {
-            let type = icons[item] ? item : "other";
-            return `<span style="color:${colors[type]}; margin-right:4px;">
-                ${icons[type]} ${item}
-            </span>`;
+            let type = colors[item] ? item : "other";
+            return `<span style="color:${colors[type]};">${item}</span>`;
         }).join('<span style="color:#999;"> / </span>');
     });
 }
