@@ -452,14 +452,15 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // টেবিল ৬ এর 32তম row মার্জ (মোট row)
             const cell32 = document.querySelector("#table6 tbody tr:nth-child(32) td:nth-child(1)");
-            if (cell32) {
-                cell32.setAttribute("colspan", "3");
-                cell32.textContent = "মোট";
-                let next = cell32.nextElementSibling;
-                if (next) next.remove();
-                next = cell32.nextElementSibling;
-                if (next) next.remove();
-            }
+if (cell32) {
+    cell32.setAttribute("colspan", "4");
+    cell32.textContent = "মোট";
+
+    for (let i = 0; i < 3; i++) {
+        let next = cell32.nextElementSibling;
+        if (next) next.remove();
+    }
+}
 // টেবিল ৬ এর color দােওয়া
 colorTable6();
             // অন্যান্য টেবিল বিল্ড
