@@ -139,27 +139,67 @@ function colorTable5() {
     });
 }
 
+const colors = {
+    "গরু": "#7C2D12",
+    "রোস্ট": "#BE123C",
+    "other": "#334155",
+    "মুরগী": "#059669",
+    "মাছ": "#4F46E5",
+    "ডিম": "#D97706",
+    "সবজি": "#84CC16"
+};
+
+const icons = {
+    "গরু": "🥩",
+    "রোস্ট": "🍖",
+    "মুরগী": "🍗",
+    "মাছ": "🐟",
+    "ডিম": "🥚",
+    "সবজি": "🥬",
+    "other": "🍽️"
+};
+
+const priority = ["গরু", "রোস্ট", "other", "মুরগী", "মাছ", "ডিম", "সবজি"];
 
 function colorTable6() {
-    const colors = {
-        "মুরগী": "#10B981", // emerald green
-        "মাছ": "#6366F1",  // indigo
-        "রোস্ট": "#F43F5E", // rose pink
-        "গরু": "#A16207",  // amber-brown
-        "ডিম": "#F59E0B"   // amber
-        };
-
     document.querySelectorAll("#table6 td").forEach(cell => {
         let text = cell.innerText.trim();
         let items = text.split("/").map(i => i.trim());
 
-        // নতুন HTML বানানো
+        let finalType = "other";
+
+        for (let p of priority) {
+            if (p === "other") {
+                let known = ["গরু", "রোস্ট", "মুরগী", "মাছ", "ডিম", "সবজি"];
+                if (!items.some(i => known.includes(i))) {
+                    finalType = "other";
+                    break;
+                }
+            } else if (items.includes(p)) {
+                finalType = p;
+                break;
+            }
+        }
+
+        // style apply
+        cell.style.color = colors[finalType];
+        cell.style.fontWeight = (finalType === "গরু" || finalType === "রোস্ট") ? "700" : "500";
+
+        // glow effect for premium items
+        if (finalType === "গরু" || finalType === "রোস্ট") {
+            cell.style.textShadow = "0 0 6px rgba(0,0,0,0.15)";
+        }
+
+        // icon + colored text
         cell.innerHTML = items.map(item => {
-            let color = colors[item] || "#333";
-            return `<span style="color:${color}; font-weight:600;">${item}</span>`;
-        }).join(" / ");
+            let type = icons[item] ? item : "other";
+            return `<span style="color:${colors[type]}; margin-right:4px;">
+                ${icons[type]} ${item}
+            </span>`;
+        }).join('<span style="color:#999;">/</span>');
     });
 }
+
 // ================== খালি row লুকানোর ফাংশন =================
 /**
  * নির্দিষ্ট কলাম খালি থাকলে row লুকিয়ে দেয়
